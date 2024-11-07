@@ -19,6 +19,7 @@ import Gallery from './components/Gallery';
 import Skills from './components/Skills';
 import Highlights from './components/Highlights';
 import Certificates from './components/Certificates';
+import Picture from './assets/profilesquare.png';
 
 function App() {
   const [activeTab, setActiveTab] = useState('posts');
@@ -43,7 +44,7 @@ function App() {
       {/* Instagram-style Header */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
-          <h1 className="text-xl font-serif">@shubham.dev</h1>
+          <h1 className="text-xl font-serif">@shubham.narkhede</h1>
           <div className="flex gap-4">
             <button className="p-1 hover:bg-gray-100 rounded-full">
               <Heart className="w-6 h-6" />
@@ -62,7 +63,7 @@ function App() {
             <div className="relative">
               <div className="w-20 h-20 rounded-full p-0.5 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500">
                 <img
-                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop"
+                  src={Picture}
                   alt="Shubham Narkhede"
                   className="w-full h-full rounded-full object-cover border-2 border-white"
                 />
@@ -70,7 +71,7 @@ function App() {
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-4">
-                <h2 className="text-xl font-semibold">shubham.narkhede</h2>
+                <h2 className="text-xl font-semibold">spnarkhede</h2>
                 <CheckCircle className="w-5 h-5 text-blue-500 fill-current" />
                 <button className="px-6 py-1.5 bg-gray-100 rounded-lg text-sm font-medium">
                   Edit profile
@@ -80,15 +81,17 @@ function App() {
                 </button>
               </div>
               <div className="flex gap-6 text-sm mb-4">
-                <div><span className="font-semibold">50+</span> projects</div>
-                <div><span className="font-semibold">12</span> certificates</div>
-                <div><span className="font-semibold">25</span> articles</div>
+                <div><span className="font-semibold">50+</span> Projects</div>
+                <div><span className="font-semibold">12</span> Certificates</div>
+                <div><span className="font-semibold">25</span> Articles</div>
               </div>
               <div className="text-sm">
                 <p className="font-medium">Shubham Narkhede</p>
-                <p className="text-gray-600">Senior Software Engineer @ Tech Giants</p>
+                <p className="text-gray-600">DevOps Software Engineer @Robert Bosch GmbH</p>
+                <p className="text-gray-600">Stuttgart, Germany</p>
                 <p className="text-gray-600">Building scalable applications • Open source contributor</p>
-                <p className="text-blue-900">github.com/shubham</p>
+                <p className="text-blue-900"> <a href="https://github.com/spnarkhede" target='_blank'>github/@spnarkhede</a></p>
+                <p className="text-blue-900"> <a href="https://guide-book.vercel.app/" target='_blank'>@guide-book</a></p>
               </div>
             </div>
           </div>
@@ -149,10 +152,10 @@ function App() {
       {/* Social Links */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col gap-4">
         {[
-          { icon: <Github className="w-5 h-5" />, href: "https://github.com" },
-          { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com" },
+          { icon: <Github className="w-5 h-5" />, href: "https://github.com/spnarkhede" },
+          { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com/spnarkhede" },
           { icon: <Twitter className="w-5 h-5" />, href: "https://twitter.com" },
-          { icon: <Mail className="w-5 h-5" />, href: "mailto:contact@shubham.dev" },
+          { icon: <Mail className="w-5 h-5" />, href: "mailto:shubhampnarkhede@gmail.com" },
         ].map((social, index) => (
           <a
             key={index}
