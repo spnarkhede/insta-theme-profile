@@ -1,6 +1,7 @@
 |-- .gitignore
 |-- eslint.config.js
 |-- index.html
+|-- package-lock.json
 |-- package.json
 |-- postcss.config.js
 |-- profile.png
@@ -19,6 +20,7 @@
         |-- Highlights.tsx
         |-- Skills.tsx
         |-- Timeline.tsx
+        |-- VerifiedBadge.tsx
     |-- index.css
     |-- main.tsx
     |-- types

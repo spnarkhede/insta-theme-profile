@@ -20,6 +20,7 @@ import Skills from './components/Skills';
 import Highlights from './components/Highlights';
 import Certificates from './components/Certificates';
 import Picture from './assets/profilesquare.png';
+import VerifiedBadge from './components/VerifiedBadge';
 
 function App() {
   const [activeTab, setActiveTab] = useState('posts');
@@ -72,7 +73,7 @@ function App() {
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-4">
                 <h2 className="text-xl font-semibold">spnarkhede</h2>
-                <CheckCircle className="w-5 h-5 text-blue-500 fill-current" />
+                <VerifiedBadge />
                 <button className="px-6 py-1.5 bg-gray-100 rounded-lg text-sm font-medium">
                   Edit profile
                 </button>
