@@ -3,6 +3,8 @@
 |-- index.html
 |-- package-lock.json
 |-- package.json
+|-- postcss.config.js
+|-- profile.png
 |-- public
     |-- vite.svg
 |-- README.md
@@ -11,9 +13,16 @@
     |-- App.tsx
     |-- assets
         |-- react.svg
+    |-- components
+        |-- Certificates.tsx
+        |-- Gallery.tsx
+        |-- Highlights.tsx
+        |-- Skills.tsx
+        |-- Timeline.tsx
     |-- index.css
     |-- main.tsx
     |-- vite-env.d.ts
+|-- tailwind.config.js
 |-- tsconfig.app.json
 |-- tsconfig.json
 |-- tsconfig.node.json
