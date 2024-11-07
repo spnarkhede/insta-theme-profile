@@ -12,6 +12,7 @@
     |-- App.css
     |-- App.tsx
     |-- assets
+        |-- profilesquare.png
         |-- react.svg
     |-- components
         |-- Certificates.tsx
