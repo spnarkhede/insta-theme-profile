@@ -1,7 +1,8 @@
-import React from 'react';
-import { Award, ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+import { Award, ExternalLink, X } from 'lucide-react';
+import type { Certificate } from '../types';
 
-const certificates = [
+const certificates: Certificate[] = [
   {
     title: 'AWS Solutions Architect',
     issuer: 'Amazon Web Services',
@@ -26,6 +27,8 @@ const certificates = [
 ];
 
 export default function Certificates() {
+  const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
+
   return (
     <section id="certificates" className="py-8 px-4">
       <div className="max-w-2xl mx-auto">
@@ -37,7 +40,8 @@ export default function Certificates() {
           {certificates.map((cert, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-xl overflow-hidden hover:bg-gray-100 transition-colors"
+              onClick={() => setSelectedCert(cert)}
+              className="bg-gray-50 rounded-xl overflow-hidden hover:bg-gray-100 transition-colors cursor-pointer"
             >
               <div className="md:flex">
                 <div className="md:w-48 h-48 md:h-auto">
@@ -53,21 +57,60 @@ export default function Certificates() {
                     <p className="text-gray-600 mb-2">Issued by {cert.issuer}</p>
                     <p className="text-sm text-gray-500">{cert.date}</p>
                   </div>
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
                     className="flex items-center gap-2 text-pink-600 hover:text-pink-700 transition-colors mt-4"
                   >
-                    <span>View Certificate</span>
+                    <span>View Details</span>
                     <ExternalLink className="w-4 h-4" />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Certificate Modal */}
+      {selectedCert && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
+            <div className="flex justify-between items-center p-4 border-b">
+              <h3 className="font-semibold">{selectedCert.title}</h3>
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="p-1 hover:bg-gray-100 rounded-full"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-6">
+              <img
+                src={selectedCert.image}
+                alt={selectedCert.title}
+                className="w-full h-64 object-cover rounded-lg mb-6"
+              />
+              <div className="space-y-4">
+                <div>
+                  <h4 className="text-sm text-gray-500">Issuing Organization</h4>
+                  <p className="font-medium">{selectedCert.issuer}</p>
+                </div>
+                <div>
+                  <h4 className="text-sm text-gray-500">Issue Date</h4>
+                  <p className="font-medium">{selectedCert.date}</p>
+                </div>
+                <a
+                  href={selectedCert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors"
+                >
+                  View Certificate
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

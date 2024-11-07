@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { BookOpen, Heart, MessageCircle, Share2, X } from 'lucide-react';
+import { useState } from 'react';
+import { BookOpen, Heart, MessageCircle, Share2, X, Github } from 'lucide-react';
+import type { Post } from '../types';
 
-const posts = [
+const posts: Post[] = [
   {
     title: 'Building Scalable Microservices',
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop',
@@ -32,10 +33,10 @@ const posts = [
 ];
 
 export default function Gallery() {
-  const [selectedPost, setSelectedPost] = useState(null);
-  const [likedPosts, setLikedPosts] = useState({});
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
+  const [likedPosts, setLikedPosts] = useState<Record<number, boolean>>({});
 
-  const toggleLike = (index) => {
+  const toggleLike = (index: number) => {
     setLikedPosts(prev => ({
       ...prev,
       [index]: !prev[index]
@@ -63,7 +64,15 @@ export default function Gallery() {
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white gap-4">
                 <span className="flex items-center gap-1">
-                  <Heart className="w-5 h-5" fill="white" /> {post.likes}
+                  <Heart 
+                    className="w-5 h-5" 
+                    fill={likedPosts[index] ? "white" : "none"}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleLike(index);
+                    }}
+                  />
+                  {post.likes + (likedPosts[index] ? 1 : 0)}
                 </span>
                 <span className="flex items-center gap-1">
                   <MessageCircle className="w-5 h-5" fill="white" /> 12

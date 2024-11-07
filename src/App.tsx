@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   Github, 
   Linkedin, 
@@ -7,16 +7,13 @@ import {
   Home, 
   Briefcase, 
   Code2, 
-  User, 
   Heart, 
   MessageCircle, 
   Bookmark, 
   CheckCircle,
   BookOpen,
   Award,
-  X
 } from 'lucide-react';
-import ProfilePicture from './assets/profilesquare.png'; 
 import Timeline from './components/Timeline';
 import Gallery from './components/Gallery';
 import Skills from './components/Skills';
@@ -46,7 +43,7 @@ function App() {
       {/* Instagram-style Header */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
-          <h1 className="text-xl font-serif">@spnarkhede</h1>
+          <h1 className="text-xl font-serif">@shubham.dev</h1>
           <div className="flex gap-4">
             <button className="p-1 hover:bg-gray-100 rounded-full">
               <Heart className="w-6 h-6" />
@@ -65,7 +62,7 @@ function App() {
             <div className="relative">
               <div className="w-20 h-20 rounded-full p-0.5 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500">
                 <img
-                  src={ProfilePicture}
+                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop"
                   alt="Shubham Narkhede"
                   className="w-full h-full rounded-full object-cover border-2 border-white"
                 />
@@ -73,7 +70,7 @@ function App() {
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-4">
-                <h2 className="text-xl font-semibold">@spnarkhede</h2>
+                <h2 className="text-xl font-semibold">shubham.narkhede</h2>
                 <CheckCircle className="w-5 h-5 text-blue-500 fill-current" />
                 <button className="px-6 py-1.5 bg-gray-100 rounded-lg text-sm font-medium">
                   Edit profile
@@ -83,16 +80,15 @@ function App() {
                 </button>
               </div>
               <div className="flex gap-6 text-sm mb-4">
-                <div><span className="font-semibold">50+</span> Projects</div>
-                <div><span className="font-semibold">12</span> Certificates</div>
-                <div><span className="font-semibold">25</span> Articles</div>
+                <div><span className="font-semibold">50+</span> projects</div>
+                <div><span className="font-semibold">12</span> certificates</div>
+                <div><span className="font-semibold">25</span> articles</div>
               </div>
               <div className="text-sm">
                 <p className="font-medium">Shubham Narkhede</p>
-                <p className="text-gray-600">DevOps Engineer @Robert Bosch GmbH</p>
+                <p className="text-gray-600">Senior Software Engineer @ Tech Giants</p>
                 <p className="text-gray-600">Building scalable applications • Open source contributor</p>
-                <p className="text-blue-900"> <a href="https://github.com/spnarkhede" target='_blank'>github/@spnarkhede</a></p>
-                <p className="text-blue-900"> <a href="https://guide-book.vercel.app/" target='_blank'>@guide-book</a></p>
+                <p className="text-blue-900">github.com/shubham</p>
               </div>
             </div>
           </div>

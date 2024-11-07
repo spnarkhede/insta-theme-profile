@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import type { Highlight } from '../types';
 
-const highlights = [
+const highlights: Highlight[] = [
   {
     id: 1,
     title: 'Skills',
@@ -29,13 +30,14 @@ const highlights = [
 ];
 
 export default function Highlights() {
-  const [activeStory, setActiveStory] = useState(null);
+  const [activeStory, setActiveStory] = useState<Highlight | null>(null);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    let timer;
+    let intervalId: number | undefined;
+    
     if (activeStory !== null) {
-      timer = setInterval(() => {
+      intervalId = window.setInterval(() => {
         setProgress((prev) => {
           if (prev >= 100) {
             setActiveStory(null);
@@ -43,9 +45,14 @@ export default function Highlights() {
           }
           return prev + 1;
         });
-      }, 100); // 10 seconds total duration
+      }, 100);
     }
-    return () => clearInterval(timer);
+    
+    return () => {
+      if (intervalId) {
+        window.clearInterval(intervalId);
+      }
+    };
   }, [activeStory]);
 
   return (
